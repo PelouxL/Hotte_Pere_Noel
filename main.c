@@ -32,7 +32,7 @@ int main(){
   magie(l);
   aff(l,5);
   */
-
+  /* suppr(l, 3); */
   
   for( k = 0; k < i ; k++){
       if( verifsuperpos(l, 1, &l[k], k, hot) == 0){ /* placement des cadeaux dans la hotte */

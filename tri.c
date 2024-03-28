@@ -43,6 +43,7 @@ void magie(cadeaux* cad){
 }
 
 
+
 int estdedans(cadeaux cad1, cadeaux cad2){
   if ( cad1.x >= cad2.x && cad1.x <= (cad2.x + cad2.larg) && cad1.y >= cad2.y && cad1.y <= (cad2.y + cad2.haut)){
     return 1;

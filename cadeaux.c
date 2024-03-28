@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include"types.h"
-
+#include"interface.h"
 
 void init_hot(Hotte* hot){
   char c;
@@ -83,3 +83,26 @@ void aff(cadeaux l[N], int n){
     }
     printf("\n");
 }
+
+
+
+/* cadeaux *ajout(cadeaux *cad, int n){ /\* permet d'ajouter un cadeau en donnant, la liste de cadeaux , et le nombre de cadeaux déjà present dans la liste *\/ */
+/*     cadeaux aj; */
+/*     int manuelle; */
+/*     printf("lalalala\n"); */
+/*     cad = ( cadeaux*) realloc ( cad, (n+1)*sizeof(cadeaux)); */
+/*     if(cad == NULL){ */
+/*         printf("Erreur d'allocation mémoire lui\n"); */
+/*         exit(EXIT_FAILURE); */
+/*     } */
+/*     printf("lalaiiiiiiilala\n"); */
+/*     manuelle=choix(); */
+/*     aj = init_cad(manuelle); /\* si ajout définie aleatoirement ou manuellleme,nt *\/ */
+/*     cad[n]=aj; */
+/*     return cad; */
+/* } PROBLEME DALLOCATION REVOIR PLUS TARD */
+
+/* cadeaux * suppr(cadeaux *cad, int n){ */
+    
+/*     return cad; */
+/* } */
