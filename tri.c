@@ -61,6 +61,7 @@ int verifsuperpos(cadeaux *cad,int nbhot, cadeaux *cap, int nbcad, Hotte hot){
     if( cap->y + cap->haut > hot.y){ 
       cap->x = cad[i].x + cad[i].larg;
       cap->y =0;
+      
       for( k = 0 ; k < i ; k++){
 	if(cad[k].hotte == nbhot ){
 	  if( estdedans(*cap, cad[k]) == 1 ){ /* fait un décalage a droite et si il y a de la place le met sur le cadeaux plus bas */
@@ -70,7 +71,7 @@ int verifsuperpos(cadeaux *cad,int nbhot, cadeaux *cap, int nbcad, Hotte hot){
       }
     }
     
-    if (cap->x > hot.x ){ /* plus de place dans la hotte */
+    if (cap->x + cap->larg > hot.x ){ /* plus de place dans la hotte */
       cap->x = -1;
       cap->y = -1;
       cap->hotte = -1;
@@ -80,11 +81,35 @@ int verifsuperpos(cadeaux *cad,int nbhot, cadeaux *cap, int nbcad, Hotte hot){
     
   }
   cap->hotte = nbhot; /* on a pacer le cadeaux dans la hotte */
-  printf("Coordonée du cadeau n° %d, x =%d et y = %d\n",cap->hotte, cap->x, cap->y);
+  printf("Coordonée du cadeau n° %d, x =%d et y = %d\n",nbcad+1, cap->x, cap->y);
   return 1;
 }
 
-                
+
+int calc(cadeaux cad){
+    int acc;
+    acc = cad.larg * cad.haut;
+    return acc;
+}
+
+cadeaux trois(cadeaux *cad, int nbcad){
+    int i,j;
+    cadeaux new = cad[0];
+    for( i = 0 ; i < nbcad ; i++ ){
+        for( j = 0 ; j < nbcad ; j++ ){
+            if( calc(cad[j]) < calc(cad[j+1]) ){
+                new=cad[j];
+                cad[j] = cad[j+1];
+                cad[j+1] = new;
+            }
+        }
+    }
+    return  *cad;
+}
+
+
+    
+        
                 
         
     

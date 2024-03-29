@@ -11,4 +11,9 @@ de notre cadeau */
 
 int estdedans(cadeaux cad1, cadeaux cad2);
 
+int calc(cadeaux cad); /* permet de calculer l'air */
+
+cadeaux trois(cadeaux *cad, int nbcad); /* tri en fonction de la taille */
+
+
 #endif

@@ -2,22 +2,22 @@
 #include<stdio.h>
 #include"types.h"
 #include"interface.h"
+#include"interface_mlv.h"
 
 void init_hot(Hotte* hot){
   char c;
   int x,y,z;
   printf("Voulez vous remplir la Hotte manuellement  Y N ? définie de base a 120 120 50\n");
   if( scanf("%c",&c) < 1 || (c !='Y' && c !='N')){
-    printf("Erreur veuillez seulement renseignez N ou Y\n");
-    return; 
+      printf("Erreur veuillez seulement renseignez N ou Y\n");
+      return; 
   }
-  if( c =='N'){
-   
+  
+  if( c =='N'){ 
     hot->x = 120;
     hot->y = 120;
     hot->z = 50;
     hot->niveaux = 1;
-    printf("allalalala\n");
   }else{
     printf("Donner les dimension seprarer d'un espace\n");
     if((scanf("%d %d %d",&x,&y,&z))< 3){
