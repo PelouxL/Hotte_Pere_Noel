@@ -17,4 +17,9 @@ cadeaux trois(cadeaux *cad, int nbcad); /* tri en fonction de la taille */
 
 int calc_mag(cadeaux *cad,int nbcad, Hotte hot);
 
+cadeaux * copie(cadeaux *l, int nbcad);
+/* 0 = cadeaux rentre pas, 1 tout cadeaux rentre */
+
+int simulation(cadeaux *cad, int nbhot, int nbcad, Hotte hot );
+
 #endif

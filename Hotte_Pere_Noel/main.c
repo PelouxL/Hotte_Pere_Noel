@@ -11,9 +11,10 @@
 
 
 int main(){
-  int i=5, k, stop=0, desc=200;
-  cadeaux * l;
+  int i=5, k, stop=0, desc=200, simu=0, cad_red=1, reduction = 25;
+  cadeaux * l, *tmp = NULL;
   Hotte hot;
+  
   srand(time(NULL));
   
   MLV_create_window("Agencement", " ", 1024, 900 );
@@ -28,21 +29,47 @@ int main(){
   
     /* suppr(l, 3); */
 
-    while( calc_mag(l, i, hot) == 1){
-      magie(&l[0], 50);
-      trois(l,5);
-    }
+    trois(l,i);
     aff(l,i);
+    tmp = copie(l, i);
+
+
+    /* Simulation pour vérifier que tout les cadeaux rentre dans 1 Hotte */
+    
+    while(simu == 0){
+      if(simulation(tmp,1,i,hot) == 0){
+	if(tmp != NULL){
+	  free(tmp);
+	}
+	tmp= copie(l,  i);
+	for( k = 0 ; k < cad_red ; k++){
+	  if(reduction > 75){
+	    reduction = 25;
+	    cad_red++;
+	  }
+	  if(cad_red > i){
+	    simu =1;
+	  }
+	  magie(&tmp[k],reduction);
+	}
+	reduction+=25;
+      }else{
+	simu=1;
+      }
+    }
+    l = copie(tmp,i);
+
+    /*************************************************************************/
     
     for( k = 0; k < i ; k++){
-        if( verifsuperpos(l, 1, &l[k], k, hot) == 1){ /* placement des cadeaux dans la hotte */
-            aff_cad(l[k],hot);;
+      if( verifsuperpos(l, 1, &l[k], k, hot) == 1){  /*placement des cadeaux dans la hotte */
+            aff_cad(l[k],hot);
             aff_log(l[k], desc, k, 1);
         }else{
             aff_log(l[k], desc, k, 0);
         }
         desc+=30;
-        MLV_actualise_window();	
+        MLV_actualise_window();
     }
     stop=1;
   }

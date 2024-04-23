@@ -36,6 +36,9 @@ void menu(){
 
 }
 
+
+
+/*--------------------------------- fonction d'affichage du cadeaux et des logs ------------------------------------------- */
   
 void aff_cad(cadeaux cad, Hotte hot){
   float ratio, ratioy;
@@ -61,7 +64,7 @@ void aff_log(cadeaux cad, int desc, int nbcad, int ok){
     MLV_draw_adapted_text_box(650, desc, tabkkk,1, MLV_COLOR_WHITE, MLV_COLOR_BLACK, MLV_COLOR_WHITE, MLV_TEXT_CENTER );
 }
 
-
+/* -------------------------------------------------------------------------------------------------------------------------- */
 
 void Choix_cad_mlv(int *m){
     int sx=0, sy=0;   

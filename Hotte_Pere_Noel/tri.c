@@ -84,6 +84,7 @@ int verifsuperpos(cadeaux *cad,int nbhot, cadeaux *cap, int nbcad, Hotte hot){
 }
 
 
+
 int calc(cadeaux cad){
     int acc;
     acc = cad.larg * cad.haut;
@@ -117,9 +118,42 @@ int calc_mag(cadeaux *cad,int nbcad, Hotte hot){
   return 0;
 }
 
+cadeaux * copie(cadeaux *l, int nbcad){
+  int i;
+  cadeaux* cop=NULL;
+  cop =(cadeaux*) malloc (nbcad * sizeof(cadeaux));
+  if ( cop == NULL ){
+    printf("Erreur d'allocation \n");
+    exit(EXIT_FAILURE);
+  }
+  for( i = 0 ; i < nbcad ; i++ ){
+    cop[i].x= l[i].x;
+    cop[i].y= l[i].y;
+    cop[i].effort= l[i].effort;
+    cop[i].hotte= l[i].hotte;
+    cop[i].larg = l[i].larg;
+    cop[i].haut = l[i].haut;
+    cop[i].pro = l[i].pro;
+  }
+  return cop;
+}
 
-    
+int simulation(cadeaux *cad, int nbhot, int nbcad, Hotte hot ){
+  int i, fin=0;
+  while(fin == 0){
+    for( i = 0 ; i < nbcad ; i++){
+      if(verifsuperpos(cad,nbhot, &cad[i], nbcad, hot) == 0){
+	return 0;
+      }
+    }
+    fin=1;
+  }
+  return 1; /* tout les cadeaux rentre */
+}
+
+  
         
                 
         
-    
+
+
