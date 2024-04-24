@@ -26,10 +26,6 @@ int main(){
     l = all_mlv_init(i); /* initialisation d'une liste de cadeaux */
     
     trois(l, i); /* tri la liste de façon decroissante */
-  
-    /* suppr(l, 3); */
-
-    trois(l,i);
     aff(l,i);
     tmp = copie(l, i);
 
@@ -41,11 +37,12 @@ int main(){
 	if(tmp != NULL){
 	  free(tmp);
 	}
-	tmp= copie(l,  i);
+	tmp= copie(l, i);
 	for( k = 0 ; k < cad_red ; k++){
 	  if(reduction > 75){
 	    reduction = 25;
 	    cad_red++;
+	    
 	  }
 	  if(cad_red > i){
 	    simu =1;
@@ -57,13 +54,13 @@ int main(){
 	simu=1;
       }
     }
-    l = copie(tmp,i);
-
+    l = copie(tmp, i);
+   
     /*************************************************************************/
     
     for( k = 0; k < i ; k++){
       if( verifsuperpos(l, 1, &l[k], k, hot) == 1){  /*placement des cadeaux dans la hotte */
-            aff_cad(l[k],hot);
+	aff_cad(l[k],hot, k);
             aff_log(l[k], desc, k, 1);
         }else{
             aff_log(l[k], desc, k, 0);
@@ -73,9 +70,12 @@ int main(){
     }
     stop=1;
   }
+  calc_eff(l,i);
   ecrire(hot, l, i);
+  MLV_actualise_window();
   printf("\n");
   aff_hot(l, i);
+  
   MLV_wait_seconds(20);
   free(l);
   exit(EXIT_SUCCESS);

@@ -1,8 +1,6 @@
 Taille Hotte format : x y z 
-120 120 50
+150 150 150
 Taille cadeaux format : num x y largeur hauteur pro 
-1 0 0 62 33 6
-2 0 33 52 35 4
-3 52 33 39 76 5
-4 91 0 24 48 1
-5 91 48 24 27 18
+1 0 0 69 55 2
+2 0 55 54 52 2
+3 0 107 15 42 2

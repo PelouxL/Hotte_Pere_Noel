@@ -3,7 +3,7 @@
 
 void menu();
 
-void aff_cad(cadeaux cad, Hotte hot);
+void aff_cad(cadeaux cad, Hotte hot, int i);
 
 void aff_log(cadeaux cad, int desc, int nbcad, int ok);
 

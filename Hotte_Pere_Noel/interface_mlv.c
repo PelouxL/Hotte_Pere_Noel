@@ -7,6 +7,7 @@
 #include"interface.h"
 #define L 290
 char tabkkk[500];
+char nb[220];
 
 void menu(){
  
@@ -40,17 +41,25 @@ void menu(){
 
 /*--------------------------------- fonction d'affichage du cadeaux et des logs ------------------------------------------- */
   
-void aff_cad(cadeaux cad, Hotte hot){
+void aff_cad(cadeaux cad, Hotte hot, int i){
   float ratio, ratioy;
   ratio = L/(hot.x*1.0);
   ratioy= L/(hot.y*1.0);
 
-  MLV_draw_filled_rectangle(105+cad.x*ratio, (355+L-(cad.y+cad.haut)*ratioy), cad.larg*ratio, cad.haut*ratioy, MLV_COLOR_DARKGREEN);
+  if(cad.effort == 0){
+    MLV_draw_filled_rectangle(105+cad.x*ratio, (355+L-(cad.y+cad.haut)*ratioy), cad.larg*ratio, cad.haut*ratioy, MLV_COLOR_DARKGREEN);
+  }else{
+     MLV_draw_filled_rectangle(105+cad.x*ratio, (355+L-(cad.y+cad.haut)*ratioy),
+			       cad.larg*ratio, cad.haut*ratioy, MLV_COLOR_YELLOW);
+  }
  
   
   MLV_draw_filled_rectangle(105+cad.x*ratio+(cad.larg/3)*ratio, (355+L-(cad.y+cad.haut)*ratio), cad.larg/3*ratio, cad.haut*ratioy, MLV_COLOR_RED);  /* bandeau haut bas */ 
   MLV_draw_filled_rectangle(105+cad.x*ratio, (355+L-(cad.y+cad.haut)*ratioy+(cad.haut/3)*ratioy), cad.larg*ratio, cad.haut/3*ratioy, MLV_COLOR_RED);/* bandeau gauche droit */
   MLV_draw_rectangle(105+cad.x*ratio, (355+L-(cad.y+cad.haut)*ratioy), cad.larg*ratio, cad.haut*ratioy, MLV_COLOR_BLACK);
+
+  sprintf(nb,"%d",i+1);
+  MLV_draw_adapted_text_box(100+cad.x*ratio+(cad.larg/2)*ratio, +(350+L-(cad.y+cad.haut)*ratioy)+(cad.haut/2)*ratioy , nb,1, MLV_ALPHA_TRANSPARENT, MLV_COLOR_BLACK, MLV_ALPHA_TRANSPARENT, MLV_TEXT_CENTER );
 
 }
 

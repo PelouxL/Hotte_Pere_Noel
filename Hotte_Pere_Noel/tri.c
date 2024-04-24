@@ -1,7 +1,9 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include"types.h"
+#include<MLV/MLV_all.h>
 
+char mag[500];
 
 void magie(cadeaux *cad, int red){
   switch(red)
@@ -91,7 +93,7 @@ int calc(cadeaux cad){
     return acc;
 }
 
-cadeaux trois(cadeaux *cad, int nbcad){
+void trois(cadeaux *cad, int nbcad){
     int i,j;
     cadeaux new = cad[0];
     for( i = 0 ; i < nbcad ; i++ ){
@@ -103,7 +105,6 @@ cadeaux trois(cadeaux *cad, int nbcad){
             }
         }
     }
-    return  *cad;
 }
 
 int calc_mag(cadeaux *cad,int nbcad, Hotte hot){
@@ -151,7 +152,14 @@ int simulation(cadeaux *cad, int nbhot, int nbcad, Hotte hot ){
   return 1; /* tout les cadeaux rentre */
 }
 
-  
+void calc_eff(cadeaux* cad, int nbcad){
+  int i, acc=0;
+  for(i = 0 ; i < nbcad ; i++){
+    acc+=cad[i].effort;
+  }
+  sprintf(mag,"Total en effort demandé : %d",acc);
+  MLV_draw_adapted_text_box(105, 300, mag,1, MLV_COLOR_GREY, MLV_COLOR_YELLOW, MLV_COLOR_GREY, MLV_TEXT_CENTER );
+}
         
                 
         
