@@ -11,7 +11,6 @@ typedef struct{
     int x, y;
     int effort;
     int hotte;
-    /* ajout de la fragilite plus tard */
 } cadeaux;
 
 
