@@ -96,8 +96,8 @@ int calc(cadeaux cad){
 void trois(cadeaux *cad, int nbcad){
     int i,j;
     cadeaux new = cad[0];
-    for( i = 0 ; i < nbcad ; i++ ){
-        for( j = 0 ; j < nbcad ; j++ ){
+    for( i = nbcad-1 ; i > 0 ; i--){
+        for( j = 0 ; j < i ; j++ ){
             if( calc(cad[j]) < calc(cad[j+1]) ){
                 new=cad[j];
                 cad[j] = cad[j+1];
@@ -182,4 +182,10 @@ void fragile(cadeaux *cad , int nb){
   }
 }
 
-
+void malade(cadeaux* l, int i){
+  int k;
+  for(k = 0; k < i ; k++){
+    l[k].x = 0;
+    l[k].y=0;
+  }
+}

@@ -57,12 +57,15 @@ int main(){
       }else{
 	free(tmp2);
 	tmp2 = copie(tmp,i);
+	malade(tmp2,i);
+	/*trois(tmp2,i); */
 	simu=1;
 	
       }
     }
+
     l = copie(tmp2, i);
-   
+    
     /*************************************************************************/
     
     for( k = 0; k < i ; k++){
@@ -77,7 +80,7 @@ int main(){
     }
     stop=1;
   }
-    
+   
   calc_eff(l,i);
   ecrire(hot, l, i);
   MLV_actualise_window();

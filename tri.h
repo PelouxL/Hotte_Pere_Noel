@@ -27,4 +27,7 @@ void calc_eff(cadeaux * cad, int nbcad);
 void fragile(cadeaux *l , int nb);
 
 
+void malade(cadeaux* l, int i);
+
+
 #endif
